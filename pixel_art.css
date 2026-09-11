@@ -508,8 +508,7 @@ img { display: block; max-width: 100%; }
 .corin-section::before,
 .llyod-section::before,
 .edd-section::before
-.balcon-section::before
-.bangor-section::before {
+.balcon-section::before {
   display: none; /* handled by section-label dashed line */
 }
 
