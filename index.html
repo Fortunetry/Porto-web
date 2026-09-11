@@ -1,321 +1,338 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Ramandasswara — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="#" type="image/x-icon">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
+  <!-- ── ANNOUNCEMENT BANNER ── -->
+  <div class="pencil-banner">
+    <span class="pencil-dot"></span>
+    Open to internship & freelance opportunities — let's build something.
+    <a href="mailto:adityars.v2@gmail.com">Contact me →</a>
+  </div>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
     <a class="navbar-logo" href="#">
-      <img src="gambar/llyod IS WATER.gif" alt="Logo pixel art">
+      <img src="gambar/llyod IS WATER.gif" alt="Logo">
       <span>Aditya.dev</span>
     </a>
-    <ul>
-      <li><a href="#about" class="active">about</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#pixel">pixel art</a></li>
-      <li><a href="Pixel_art.html" target="_blank">gallery →</a></li>
+    <ul class="navbar-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#pixel">Pixel Art</a></li>
+      <li><a href="Pixel_art.html" target="_blank">Gallery</a></li>
     </ul>
+    <a href="mailto:adityars.v2@gmail.com" class="btn btn-primary navbar-cta">Get in touch</a>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <!-- GRADIENT BARS BACKGROUND -->
-    <div class="gradient-bars" aria-hidden="true" id="gradientBars"></div>
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
 
-    <p class="hero-label">portfolio</p>
-    <h1>Aditya<br><span>Ramandasswara</span></h1>
-    <p class="tagline">Backend-focused junior developer with an interest in logical thinking and pixel art.</p>
-    <div class="hero-cta">
-      <a href="#about" class="btn btn-primary">About Me</a>
-      <a href="Pixel_art.html" target="_blank" class="btn btn-outline">Pixel Art Gallery</a>
-    </div>
-  </section>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Junior Developer · Backend Focus
+      </p>
 
-  <!-- MAIN CONTENT -->
-  <main>
+      <h1 class="hero-heading">
+        Building systems<br>
+        with <span class="glow-word">logic</span><br>
+        and pixel art.
+      </h1>
 
-    <!-- ABOUT -->
-    <div id="about" class="section-header">
-      <h2>// about_me</h2>
-    </div>
-    <div class="about-card">
-      <p><b style="color: aliceblue;">Hi, I'm Aditya — a self-taught developer majoring in Software Engineering with a focus on back-end development. I'm currently building my skills in web technologies while working on personal projects to improve my understanding of system logic and structure.</b></p>
-      <p><b style="color: aliceblue;">Beyond that, I also have a strong interest in game development, particularly in creating pixel art games using assets I design myself.</b></p>
-    </div>
+      <p class="hero-sub">
+        Self-taught developer majoring in Software Engineering.<br>
+        I write clean back-end logic and craft pixel art on the side.
+      </p>
 
-    <!-- SKILLS -->
-    <div id="skills" class="section-header">
-      <h2>// skills</h2>
-    </div>
-
-    <div class="skills-cert-layout">
-
-      <!-- LEFT: skills -->
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <h3>Programming</h3>
-          <div class="skill-icons">
-            <div class="skill-icon">
-              <img src="gambar/Python-logo.png" alt="Python">
-              <span>Python</span>
-            </div>
-            <div class="skill-icon">
-              <img src="gambar/css-3.png" alt="CSS">
-              <span>CSS</span>
-            </div>
-            <div class="skill-icon">
-              <img src="gambar/html.png" alt="HTML">
-              <span>HTML</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3>Pixel Art Tools</h3>
-          <div class="skill-icons">
-            <div class="skill-icon">
-              <img src="gambar/pixel_studio.png" alt="Pixel Studio">
-              <span>Pixel Studio</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-card" style="grid-column: span 2;">
-          <h3>Soft Skills</h3>
-          <div class="softskill-list">
-            <span class="softskill-tag">Structured Thinking</span>
-            <span class="softskill-tag">Willing to Learn</span>
-            <span class="softskill-tag">Detail Awareness</span>
-            <span class="softskill-tag">Receptive to Critique</span>
-          </div>
-        </div>
-
-      </div><!-- end skills-grid -->
-
-      <!-- RIGHT: certificates carousel -->
-      <div class="cert-panel">
-        <p class="cert-panel-label">// certificates</p>
-
-        <div class="cert-track-wrap">
-          <div class="cert-track" id="certTrack">
-
-            <!--
-            ╔══════════════════════════════════════════════════════╗
-            ║  TEMPLATE TAMBAH SERTIFIKAT BARU                     ║
-            ║  Copy blok di bawah ini, paste sebelum komentar      ║
-            ║  "DUPLIKAT", lalu copy juga ke bagian DUPLIKAT.      ║
-            ║                                                       ║
-            ║  Isi yang perlu diubah:                              ║
-            ║  • data-img  → nama file JPG di folder Sertifikat/   ║
-            ║  • data-title → judul sertifikat                     ║
-            ║  • data-issuer → nama platform                       ║
-            ║  • --cr      → sudut kemiringan kartu (-15 s/d 15)   ║
-            ║  • class logo → coddy-logo / anthropic-logo /        ║
-            ║                 generic-logo (biru netral)           ║
-            ║                                                       ║
-            ║  <div class="cert-card" style="--cr:Xdeg;"           ║
-            ║       data-img="Sertifikat/NAMA_FILE.jpg"            ║
-            ║       data-title="JUDUL SERTIFIKAT"                  ║
-            ║       data-issuer="NAMA PLATFORM">                   ║
-            ║    <div class="cert-thumb">                          ║
-            ║      <img src="Sertifikat/NAMA_FILE.jpg" alt="">     ║
-            ║    </div>                                            ║
-            ║    <div class="cert-name">JUDUL SERTIFIKAT</div>     ║
-            ║    <div class="cert-issuer">NAMA PLATFORM</div>      ║
-            ║    <div class="cert-bottom-strip">                   ║
-            ║      <span class="cert-badge-tag">CERT</span>        ║
-            ║      <span class="cert-action">View ↗</span>         ║
-            ║    </div>                                            ║
-            ║  </div>                                              ║
-            ╚══════════════════════════════════════════════════════╝
-            -->
-
-            <!-- ── KARTU ASLI ─────────────────────────────────── -->
-
-            <div class="cert-card" style="--cr:-11deg;"
-                 data-img="Sertifikat/Python_basic.jpg"
-                 data-title="Python Fundamentals"
-                 data-issuer="Coddy">
-              <div class="cert-thumb">
-                <img src="Sertifikat/Python_basic.jpg" alt="Python Fundamentals certificate">
-              </div>
-              <div class="cert-name">Python Fundamentals</div>
-              <div class="cert-issuer">Coddy</div>
-              <div class="cert-bottom-strip">
-                <span class="cert-badge-tag">CERT</span>
-                <span class="cert-action">View ↗</span>
-              </div>
-            </div>
-
-            <div class="cert-card" style="--cr:7deg;"
-                 data-img="Sertifikat/CSS_introduction.jpg"
-                 data-title="Introduction to CSS"
-                 data-issuer="Coddy">
-              <div class="cert-thumb">
-                <img src="Sertifikat/CSS_introduction.jpg" alt="Introduction to CSS certificate">
-              </div>
-              <div class="cert-name">Introduction to CSS</div>
-              <div class="cert-issuer">Coddy</div>
-              <div class="cert-bottom-strip">
-                <span class="cert-badge-tag">CERT</span>
-                <span class="cert-action">View ↗</span>
-              </div>
-            </div>
-
-            <div class="cert-card" style="--cr:-5deg;"
-                 data-img="Sertifikat/HTML_introduction.jpg"
-                 data-title="Introduction to HTML"
-                 data-issuer="Coddy">
-              <div class="cert-thumb">
-                <img src="Sertifikat/HTML_introduction.jpg" alt="Introduction to HTML certificate">
-              </div>
-              <div class="cert-name">Introduction to HTML</div>
-              <div class="cert-issuer">Coddy</div>
-              <div class="cert-bottom-strip">
-                <span class="cert-badge-tag">CERT</span>
-                <span class="cert-action">View ↗</span>
-              </div>
-            </div>
-
-            <div class="cert-card" style="--cr:13deg;"
-                 data-img="Sertifikat/claude_101.jpg"
-                 data-title="Claude 101"
-                 data-issuer="Anthropic">
-              <div class="cert-thumb">
-                <img src="Sertifikat/claude_101.jpg" alt="Claude 101 certificate">
-              </div>
-              <div class="cert-name">Claude 101</div>
-              <div class="cert-issuer">Anthropic</div>
-              <div class="cert-bottom-strip">
-                <span class="cert-badge-tag">CERT</span>
-                <span class="cert-action">View ↗</span>
-              </div>
-            </div>
-
-            <!-- ── DUPLIKAT (untuk seamless loop — ikuti urutan di atas) ── -->
-
-            <div class="cert-card" style="--cr:-11deg;" data-img="Sertifikat/Python_basic.jpg" data-title="Python Fundamentals" data-issuer="Coddy" aria-hidden="true">
-              <div class="cert-thumb"><img src="Sertifikat/Python_basic.jpg" alt=""></div>
-              <div class="cert-name">Python Fundamentals</div><div class="cert-issuer">Coddy</div>
-              <div class="cert-bottom-strip"><span class="cert-badge-tag">CERT</span><span class="cert-action">View ↗</span></div>
-            </div>
-            <div class="cert-card" style="--cr:7deg;" data-img="Sertifikat/CSS_introduction.jpg" data-title="Introduction to CSS" data-issuer="Coddy" aria-hidden="true">
-              <div class="cert-thumb"><img src="Sertifikat/CSS_introduction.jpg" alt=""></div>
-              <div class="cert-name">Introduction to CSS</div><div class="cert-issuer">Coddy</div>
-              <div class="cert-bottom-strip"><span class="cert-badge-tag">CERT</span><span class="cert-action">View ↗</span></div>
-            </div>
-            <div class="cert-card" style="--cr:-5deg;" data-img="Sertifikat/HTML_introduction.jpg" data-title="Introduction to HTML" data-issuer="Coddy" aria-hidden="true">
-              <div class="cert-thumb"><img src="Sertifikat/HTML_introduction.jpg" alt=""></div>
-              <div class="cert-name">Introduction to HTML</div><div class="cert-issuer">Coddy</div>
-              <div class="cert-bottom-strip"><span class="cert-badge-tag">CERT</span><span class="cert-action">View ↗</span></div>
-            </div>
-            <div class="cert-card" style="--cr:13deg;" data-img="Sertifikat/claude_101.jpg" data-title="Claude 101" data-issuer="Anthropic" aria-hidden="true">
-              <div class="cert-thumb"><img src="Sertifikat/claude_101.jpg" alt=""></div>
-              <div class="cert-name">Claude 101</div><div class="cert-issuer">Anthropic</div>
-              <div class="cert-bottom-strip"><span class="cert-badge-tag">CERT</span><span class="cert-action">View ↗</span></div>
-            </div>
-
-          </div><!-- end cert-track -->
-        </div><!-- end cert-track-wrap -->
-
-      </div><!-- end cert-panel -->
-
-    </div><!-- end skills-cert-layout -->
-
-    <!-- PIXEL ART -->
-    <div id="pixel" class="section-header">
-      <h2>// pixel_art</h2>
-    </div>
-    <div class="pixel-section-card">
-      <img src="gambar/llyod IS WATER.gif" alt="Pixel art preview">
-      <div>
-        <p><b style="color: aliceblue;">I'm a fan of pixel art — whether it's drawings, games, or animation. I also sometimes create pixel art, usually of landscapes or characters from manga and manhwa that I read.</b></p>
-        <a href="Pixel_art.html" target="_blank">View full gallery →</a>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-primary">Learn about me</a>
+        <a href="Pixel_art.html" target="_blank" class="btn btn-ghost">View gallery →</a>
       </div>
     </div>
 
+    <!-- Scroll indicator -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ── TECH STRIP ── -->
+  <div class="tech-strip">
+    <div class="tech-strip-inner">
+      <span class="tech-item"><img src="gambar/html.png" alt="HTML"> HTML</span>
+      <span class="tech-sep">·</span>
+      <span class="tech-item"><img src="gambar/css-3.png" alt="CSS"> CSS</span>
+      <span class="tech-sep">·</span>
+      <span class="tech-item"><img src="gambar/Python-logo.png" alt="Python"> Python</span>
+      <span class="tech-sep">·</span>
+      <span class="tech-item"><img src="gambar/pixel_studio.png" alt="Pixel Studio"> Pixel Studio</span>
+      <span class="tech-sep">·</span>
+      <span class="tech-item">Backend Development</span>
+      <span class="tech-sep">·</span>
+      <span class="tech-item">Game Dev (indie)</span>
+    </div>
+  </div>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about" class="content-section">
+      <div class="section-inner">
+        <div class="section-eyebrow">
+          <span class="eyebrow-number">01</span>
+          <span>About</span>
+        </div>
+        <div class="about-layout">
+          <div class="about-heading-col">
+            <h2>A developer who<br>thinks in <span class="text-accent">systems.</span></h2>
+          </div>
+          <div class="about-body-col">
+            <p>Hi — I'm Aditya. I'm a self-taught developer majoring in Software Engineering, currently focused on back-end development and building a deeper understanding of system logic and structure.</p>
+            <p>Outside of code, I design pixel art — mostly characters from manga and manhwa — and I'm working toward building my own pixel art game from scratch.</p>
+            <div class="about-tags">
+              <span class="tag">Structured Thinking</span>
+              <span class="tag">Willing to Learn</span>
+              <span class="tag">Detail-oriented</span>
+              <span class="tag">Receptive to Critique</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS + CERTS -->
+    <section id="skills" class="content-section section-dark">
+      <div class="section-inner">
+        <div class="section-eyebrow">
+          <span class="eyebrow-number">02</span>
+          <span>Skills & Certificates</span>
+        </div>
+
+        <div class="skills-cert-layout">
+
+          <!-- Skills -->
+          <div class="skills-col">
+            <h2 class="col-heading">What I work with</h2>
+
+            <div class="skill-block">
+              <h3 class="skill-block-label">Programming</h3>
+              <div class="skill-icons">
+                <div class="skill-icon">
+                  <img src="gambar/html.png" alt="HTML">
+                  <span>HTML</span>
+                </div>
+                <div class="skill-icon">
+                  <img src="gambar/css-3.png" alt="CSS">
+                  <span>CSS</span>
+                </div>
+                <div class="skill-icon">
+                  <img src="gambar/Python-logo.png" alt="Python">
+                  <span>Python</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-block">
+              <h3 class="skill-block-label">Creative Tools</h3>
+              <div class="skill-icons">
+                <div class="skill-icon">
+                  <img src="gambar/pixel_studio.png" alt="Pixel Studio">
+                  <span>Pixel Studio</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-block">
+              <h3 class="skill-block-label">Soft Skills</h3>
+              <div class="softskill-list">
+                <span class="tag">Structured Thinking</span>
+                <span class="tag">Willing to Learn</span>
+                <span class="tag">Detail Awareness</span>
+                <span class="tag">Receptive to Critique</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificates -->
+          <div class="cert-col">
+            <h2 class="col-heading">Certificates</h2>
+            <div class="cert-track-wrap">
+              <div class="cert-track" id="certTrack">
+
+                <!--
+                ╔══════════════════════════════════════════════════════╗
+                ║  TEMPLATE TAMBAH SERTIFIKAT BARU                     ║
+                ║  Copy blok di bawah, paste sebelum "DUPLIKAT"        ║
+                ║  lalu copy juga ke bagian DUPLIKAT.                  ║
+                ║                                                       ║
+                ║  <div class="cert-card"                              ║
+                ║       data-img="Sertifikat/NAMA_FILE.jpg"            ║
+                ║       data-title="JUDUL"                             ║
+                ║       data-issuer="PLATFORM"                         ║
+                ║       style="--cr:Xdeg;">                            ║
+                ║    <div class="cert-thumb">                          ║
+                ║      <img src="Sertifikat/NAMA_FILE.jpg" alt="">     ║
+                ║    </div>                                            ║
+                ║    <div class="cert-info">                           ║
+                ║      <span class="cert-name">JUDUL</span>            ║
+                ║      <span class="cert-issuer">PLATFORM</span>       ║
+                ║    </div>                                            ║
+                ║  </div>                                              ║
+                ╚══════════════════════════════════════════════════════╝
+                -->
+
+                <!-- KARTU ASLI -->
+                <div class="cert-card" data-img="Sertifikat/Python_basic.jpg" data-title="Python Fundamentals" data-issuer="Coddy" style="--cr:-8deg;">
+                  <div class="cert-thumb"><img src="Sertifikat/Python_basic.jpg" alt="Python Fundamentals"></div>
+                  <div class="cert-info"><span class="cert-name">Python Fundamentals</span><span class="cert-issuer-tag">Coddy</span></div>
+                </div>
+                <div class="cert-card" data-img="Sertifikat/CSS_introduction.jpg" data-title="Introduction to CSS" data-issuer="Coddy" style="--cr:6deg;">
+                  <div class="cert-thumb"><img src="Sertifikat/CSS_introduction.jpg" alt="Introduction to CSS"></div>
+                  <div class="cert-info"><span class="cert-name">Introduction to CSS</span><span class="cert-issuer-tag">Coddy</span></div>
+                </div>
+                <div class="cert-card" data-img="Sertifikat/HTML_introduction.jpg" data-title="Introduction to HTML" data-issuer="Coddy" style="--cr:-4deg;">
+                  <div class="cert-thumb"><img src="Sertifikat/HTML_introduction.jpg" alt="Introduction to HTML"></div>
+                  <div class="cert-info"><span class="cert-name">Introduction to HTML</span><span class="cert-issuer-tag">Coddy</span></div>
+                </div>
+                <div class="cert-card" data-img="Sertifikat/claude_101.jpg" data-title="Claude 101" data-issuer="Anthropic" style="--cr:11deg;">
+                  <div class="cert-thumb"><img src="Sertifikat/claude_101.jpg" alt="Claude 101"></div>
+                  <div class="cert-info"><span class="cert-name">Claude 101</span><span class="cert-issuer-tag">Anthropic</span></div>
+                </div>
+
+                <!-- DUPLIKAT seamless loop -->
+                <div class="cert-card" data-img="Sertifikat/Python_basic.jpg" data-title="Python Fundamentals" data-issuer="Coddy" style="--cr:-8deg;" aria-hidden="true">
+                  <div class="cert-thumb"><img src="Sertifikat/Python_basic.jpg" alt=""></div>
+                  <div class="cert-info"><span class="cert-name">Python Fundamentals</span><span class="cert-issuer-tag">Coddy</span></div>
+                </div>
+                <div class="cert-card" data-img="Sertifikat/CSS_introduction.jpg" data-title="Introduction to CSS" data-issuer="Coddy" style="--cr:6deg;" aria-hidden="true">
+                  <div class="cert-thumb"><img src="Sertifikat/CSS_introduction.jpg" alt=""></div>
+                  <div class="cert-info"><span class="cert-name">Introduction to CSS</span><span class="cert-issuer-tag">Coddy</span></div>
+                </div>
+                <div class="cert-card" data-img="Sertifikat/HTML_introduction.jpg" data-title="Introduction to HTML" data-issuer="Coddy" style="--cr:-4deg;" aria-hidden="true">
+                  <div class="cert-thumb"><img src="Sertifikat/HTML_introduction.jpg" alt=""></div>
+                  <div class="cert-info"><span class="cert-name">Introduction to HTML</span><span class="cert-issuer-tag">Coddy</span></div>
+                </div>
+                <div class="cert-card" data-img="Sertifikat/claude_101.jpg" data-title="Claude 101" data-issuer="Anthropic" style="--cr:11deg;" aria-hidden="true">
+                  <div class="cert-thumb"><img src="Sertifikat/claude_101.jpg" alt=""></div>
+                  <div class="cert-info"><span class="cert-name">Claude 101</span><span class="cert-issuer-tag">Anthropic</span></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PIXEL ART -->
+    <section id="pixel" class="content-section">
+      <div class="section-inner">
+        <div class="section-eyebrow">
+          <span class="eyebrow-number">03</span>
+          <span>Pixel Art</span>
+        </div>
+        <div class="pixel-layout">
+          <div class="pixel-heading-col">
+            <h2>Characters built<br>one pixel<br>at a <span class="text-accent">time.</span></h2>
+            <p>I create pixel art of characters from manga and manhwa I read. Each piece is animated or illustrated using Pixel Studio.</p>
+            <a href="Pixel_art.html" target="_blank" class="btn btn-primary" style="margin-top:28px; display:inline-flex;">
+              Open gallery →
+            </a>
+          </div>
+          <div class="pixel-preview-col">
+            <div class="pixel-preview-card">
+              <img src="gambar/llyod IS WATER.gif" alt="Pixel art preview — Llyod">
+              <div class="pixel-preview-label">
+                <span>Llyod · The Greatest Estate Developer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Aditya Ramandasswara</p>
-    <div class="footer-contact">
-      <img src="gambar/gmail.png" alt="gmail">
-      adityars.v2@gmail.com
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a class="navbar-logo" href="#">
+          <img src="gambar/llyod IS WATER.gif" alt="Logo">
+          <span>Aditya.dev</span>
+        </a>
+        <p class="footer-bio">Junior developer · Backend focus · Pixel art</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-contact-row">
+          <img src="gambar/gmail.png" alt="Gmail" class="footer-icon">
+          <a href="mailto:adityars.v2@gmail.com">adityars.v2@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aditya Ramandasswara. All rights reserved.</span>
     </div>
   </footer>
 
-  <!-- ══════════════════════════════════════════
-       CERTIFICATE IMAGE MODAL
-       ══════════════════════════════════════════ -->
-  <div id="certModal" class="cert-modal" role="dialog" aria-modal="true" aria-label="Certificate preview">
+  <!-- ── CERT MODAL ── -->
+  <div id="certModal" class="cert-modal" role="dialog" aria-modal="true">
     <div class="cert-modal-backdrop" id="certModalBackdrop"></div>
     <div class="cert-modal-box">
-
       <div class="cert-modal-header">
         <div class="cert-modal-meta">
           <span class="cert-modal-issuer" id="certModalIssuer"></span>
           <span class="cert-modal-title"  id="certModalTitle"></span>
         </div>
         <div class="cert-modal-actions">
-          <a id="certModalDownload" href="#" download class="btn btn-outline cert-modal-open-btn">
-            Download ↓
-          </a>
+          <a id="certModalDownload" href="#" download class="btn btn-ghost cert-dl-btn">Download ↓</a>
           <button class="cert-modal-close" id="certModalClose" aria-label="Close">✕</button>
         </div>
       </div>
-
       <div class="cert-modal-body">
-        <img id="certModalImg" src="" alt="Certificate" />
+        <img id="certModalImg" src="" alt="Certificate">
       </div>
-
     </div>
   </div>
 
   <script>
+    /* ── NAVBAR scroll class ── */
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
     /* ── SMOOTH SCROLL ── */
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
 
-    /* ── GRADIENT BARS ── */
-    (function() {
-      const NUM_BARS = 15;
-      const container = document.getElementById('gradientBars');
-      function calcHeight(index, total) {
-        const pos = index / (total - 1);
-        const dist = Math.abs(pos - 0.5);
-        return 30 + 70 * Math.pow(dist * 2, 1.2);
-      }
-      for (let i = 0; i < NUM_BARS; i++) {
-        const bar = document.createElement('div');
-        const h = calcHeight(i, NUM_BARS);
-        bar.className = 'g-bar';
-        bar.style.cssText = `
-          flex: 1; height: 100%;
-          background: linear-gradient(to top, rgba(56,189,248,0.35), transparent);
-          transform: scaleY(${h / 100}); transform-origin: bottom;
-          animation: pulseBar 2s ease-in-out ${i * 0.1}s infinite alternate;
-          --initial-scale: ${h / 100}; outline: 1px solid transparent;
-        `;
-        container.appendChild(bar);
-      }
-    })();
+    /* ── SCROLL REVEAL ── */
+    var reveals = document.querySelectorAll('.content-section');
+    var ro = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('revealed');
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(function(el) { ro.observe(el); });
 
-    /* ── CERT IMAGE MODAL ── */
+    /* ── CERT MODAL ── */
     (function() {
       var modal    = document.getElementById('certModal');
       var backdrop = document.getElementById('certModalBackdrop');
@@ -325,17 +342,14 @@
       var titleEl  = document.getElementById('certModalTitle');
       var issuerEl = document.getElementById('certModalIssuer');
 
-      function openModal(imgPath, title, issuer) {
+      function openModal(src, title, issuer) {
         titleEl.textContent  = title;
         issuerEl.textContent = issuer;
-        imgEl.src            = imgPath;
-        imgEl.alt            = title;
-        dlBtn.href           = imgPath;
-        dlBtn.download       = title + '.jpg';
+        imgEl.src = src; imgEl.alt = title;
+        dlBtn.href = src; dlBtn.download = title + '.jpg';
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
       }
-
       function closeModal() {
         modal.classList.remove('open');
         document.body.style.overflow = '';
@@ -344,20 +358,14 @@
 
       document.querySelectorAll('.cert-card[data-img]').forEach(function(card) {
         card.addEventListener('click', function() {
-          openModal(
-            card.getAttribute('data-img'),
-            card.getAttribute('data-title')  || 'Certificate',
-            card.getAttribute('data-issuer') || ''
-          );
+          openModal(card.dataset.img, card.dataset.title || 'Certificate', card.dataset.issuer || '');
         });
       });
-
       closeBtn.addEventListener('click', closeModal);
       backdrop.addEventListener('click', closeModal);
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeModal();
-      });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
     })();
   </script>
+
 </body>
 </html>
