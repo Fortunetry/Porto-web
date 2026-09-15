@@ -55,10 +55,6 @@ body {
   min-height: 100vh;
 }
 
-a { color: var(--color-accent); text-decoration: none; transition: color .2s; }
-a:hover { color: #fff; }
-img { display: block; max-width: 100%; }
-
 /* ════════════════════════════════════════════
    INTRO OVERLAY — keep parchment scroll as-is
    ════════════════════════════════════════════ */
@@ -461,6 +457,10 @@ img { display: block; max-width: 100%; }
   box-shadow: var(--shadow-accent);
 }
 
+.bangor {
+  width: 100%;
+  height: 50%;
+}
 .balcon-gif-frame {
   border: 2px solid var(--color-border);
   border-radius: 0;
@@ -561,4 +561,106 @@ img { display: block; max-width: 100%; }
   .llyod-cover-wrap { order: 3; text-align: center; }
   .llyod-gif-frame img  { width: 100%; max-width: 280px; }
   .llyod-cover-wrap img { height: auto; width: 100%; max-width: 280px; }
+}
+
+/* ════════════════════════════════════════════════
+   PIXEL ART CAROUSEL
+   ════════════════════════════════════════════════ */
+.px-carousel-section {
+  padding: 40px 0 32px;
+  background: var(--color-bg, #0D0D0D);
+  border-bottom: 1px solid var(--color-border, #242438);
+  overflow: hidden;
+}
+.px-carousel-label {
+  font-family: var(--font-pixel, 'Press Start 2P', monospace);
+  font-size: 9px;
+  color: var(--color-accent, #F5F500);
+  letter-spacing: 0.14em;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.px-track-wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 0 16px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+@keyframes pxLeft  { from { transform: translateX(0);    } to { transform: translateX(-50%); } }
+@keyframes pxRight { from { transform: translateX(-50%); } to { transform: translateX(0);    } }
+.px-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+.px-track--left  { animation: pxLeft  32s linear infinite; }
+.px-track--right { animation: pxRight 32s linear infinite; }
+.px-track-wrap:hover .px-track { animation-play-state: paused; }
+
+.px-card {
+  position: relative;
+  width: 160px;
+  height: 200px;
+  flex-shrink: 0;
+  cursor: pointer;
+  background: linear-gradient(rgba(255,255,255,0.08), transparent);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 25px 25px rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: rotate(calc(var(--r, 0) * 1deg));
+  margin: 0 -18px;
+  transition: transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease, margin 0.5s ease;
+}
+.px-track-wrap:hover .px-card {
+  transform: rotate(0deg);
+  margin: 0 6px;
+}
+.px-card:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.05) !important;
+  border-color: var(--color-accent, #F5F500);
+  box-shadow: 0 0 0 2px var(--color-accent, #F5F500), 4px 4px 0px var(--color-accent, #F5F500), 0 24px 40px rgba(0,0,0,0.65);
+  margin: 0 6px !important;
+  z-index: 10;
+}
+.px-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  image-rendering: pixelated;
+  padding: 8px 8px 44px;
+  transition: transform 0.3s ease;
+}
+.px-card:hover img { transform: scale(1.06); }
+.px-card-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40px;
+  background: rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel, 'Press Start 2P', monospace);
+  font-size: 6px;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s, background 0.2s;
+}
+.px-card:hover .px-card-label {
+  color: var(--color-accent, #F5F500);
+  background: rgba(245,245,0,0.07);
+}
+@media (max-width: 600px) {
+  .px-card { width: 120px; height: 155px; margin: 0 -14px; }
+  .px-track-wrap:hover .px-card { margin: 0 4px; }
+  .px-card-label { font-size: 5px; height: 30px; }
 }
