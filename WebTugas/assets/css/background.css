@@ -1,0 +1,44 @@
+/* =========================================================
+   Global background - animated GIF + dark blue scrim
+   Palette sampled from the GIF: #000010-#000020 base with
+   electric blue stars (#3e63df - #5183f4)
+   ========================================================= */
+
+.mainBackground {
+        background-color: #04081a;
+        color: #e9f1ff;
+        color-scheme: dark;
+}
+
+.mainBackground::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000010;
+        background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODM1NDVvdGczemNnaml0d3Nkbm80aGdhYnN0YWJrY2UxanY4anducSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jaOXKCxtBPLieRLI0c/giphy.gif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        transform: scale(1.1);
+        z-index: -2;
+        will-change: transform;
+        pointer-events: none;
+}
+
+/* Thin scrim: keeps the GIF dominant while lifting text contrast */
+.mainBackground::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+                radial-gradient(70% 60% at 82% 8%, rgba(59, 130, 246, 0.18), transparent 64%),
+                radial-gradient(62% 55% at 8% 92%, rgba(34, 211, 238, 0.1), transparent 64%),
+                linear-gradient(180deg, rgba(2, 5, 15, 0.26), rgba(2, 5, 15, 0.42));
+}

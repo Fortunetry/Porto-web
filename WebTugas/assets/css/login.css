@@ -1,0 +1,238 @@
+/* =========================================================
+   Login form - adapted from Uiverse.io by shadyeljokers
+   The radial span ring is replaced by the parallax scene in
+   assets/css/login-parallax.css. Selectors are scoped to
+   .login-shell so Bootstrap's .btn / .container never leak in.
+   ========================================================= */
+
+:root {
+  --space-900: #0b1524;
+  --space-700: #101b2d;
+  --steel: #2c4766;
+  --steel-lite: #4f76a1;
+  --ice: #d8f3ff;
+  --accent: #00eeff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--space-900);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: var(--space-900);
+  color: var(--ice);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+/* Stage keeps the dial concentric with the card, even if the page scrolls. */
+.login-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 21rem;
+  max-width: 100%;
+}
+
+/* Clock dial: 50 ticks swept in sequence (Uiverse by shadyeljokers).
+   The accent lives on a pseudo-element so only opacity animates. */
+.clock {
+  --size: min(26rem, 94vw);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--size);
+  height: var(--size);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.clock span {
+  position: absolute;
+  left: 0;
+  top: calc(50% - 3px);
+  width: 8%;
+  height: 6px;
+  border-radius: 80px;
+  background: var(--steel);
+  transform-origin: calc(var(--size) / 2) 50%;
+  transform: rotate(calc(var(--i) * 7.2deg));
+}
+
+.clock span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  opacity: 0;
+  animation: clock-sweep 3s linear infinite;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+@keyframes clock-sweep {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clock span::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Narrow screens: give the dial room so the side ticks clear the card. */
+@media (max-width: 420px) {
+  .login-stage {
+    width: 20rem;
+  }
+  .clock {
+    --size: min(25rem, 96vw);
+  }
+}
+
+.login-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 1.75rem 1.5rem 1.5rem;
+  border: 1px solid rgba(79, 118, 161, 0.4);
+  border-radius: 20px;
+  background: rgba(11, 21, 36, 0.92);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.85);
+}
+
+.login-shell h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ice);
+  text-align: center;
+}
+
+.login-shell form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.login-shell .input-box {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.login-shell input {
+  width: 100%;
+  height: 48px;
+  padding: 0 1rem;
+  border: 1.5px solid var(--steel-lite);
+  border-radius: 40px;
+  background: rgba(11, 21, 36, 0.6);
+  color: var(--ice);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.login-shell input:hover {
+  border-color: #6a90bb;
+}
+
+.login-shell input:focus {
+  border-color: var(--accent);
+  background: rgba(11, 21, 36, 0.85);
+}
+
+.login-shell input:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 238, 255, 0.22);
+}
+
+.login-shell label {
+  padding-left: 0.95rem;
+  color: #8fb0cf;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.login-shell .input-box:focus-within label {
+  color: var(--accent);
+}
+
+.login-shell .login-btn {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 48px;
+  margin-top: 0.35rem;
+  border: 0;
+  border-radius: 40px;
+  background: var(--accent);
+  color: #071019;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: filter 0.18s ease, transform 0.08s ease;
+}
+
+.login-shell .login-btn:hover {
+  filter: brightness(1.08);
+}
+
+.login-shell .login-btn:active {
+  transform: translateY(1px);
+}
+
+.login-shell .login-btn:focus-visible {
+  outline: 3px solid var(--ice);
+  outline-offset: 3px;
+}
+
+/* Kept from the original component for any future use. */
+.login-shell .forgot-pass {
+  margin: -0.25rem 0 0.5rem;
+  text-align: center;
+}
+
+.login-shell .forgot-pass a {
+  font-size: 0.85rem;
+  color: var(--ice);
+  text-decoration: none;
+}
+
+.login-shell .signup-link {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.login-shell .signup-link a {
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-shell a:focus-visible {
+  outline: 3px solid var(--ice);
+  outline-offset: 3px;
+}

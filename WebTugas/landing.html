@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="vendor/datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/hero.css" />
+    <link rel="stylesheet" href="assets/css/background.css" />
+  </head>
+  <body class="mainBackground d-flex flex-column min-vh-100">
+    <main class="flex-grow-1 p-3 p-lg-4">
+      <section class="hero mb-4" aria-labelledby="hero-title">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <span class="hero__badge">
+              <i class="bi bi-mortarboard-fill"></i> Pengontrol Perilaku ASE-12
+            </span>
+            <h1 id="hero-title" class="hero__title">
+              Pantau Performa ASE-12 dalam <span>Satu Tampilan</span>
+            </h1>
+            <p class="hero__text">
+              Rekap nilai akhir, kelas, dan mata kuliah mahasiswa ASE-12 dalam
+              satu halaman.
+            </p>
+            <div class="hero__actions">
+              <a href="#data-nilai" class="btn btn-hero">
+                <i class="bi bi-table"></i> Lihat Data Nilai
+              </a>
+            </div>
+            <ul class="hero__stats">
+              <li class="stat">
+                <span class="stat__icon"
+                  ><i class="bi bi-people-fill"></i
+                ></span>
+                <span>
+                  <span class="stat__value d-block">5</span>
+                  <span class="stat__label">Mahasiswa</span>
+                </span>
+              </li>
+              <li class="stat">
+                <span class="stat__icon"
+                  ><i class="bi bi-graph-up-arrow"></i
+                ></span>
+                <span>
+                  <span class="stat__value d-block">87</span>
+                  <span class="stat__label">Rata-rata Nilai</span>
+                </span>
+              </li>
+              <li class="stat">
+                <span class="stat__icon"
+                  ><i class="bi bi-collection-fill"></i
+                ></span>
+                <span>
+                  <span class="stat__value d-block">1</span>
+                  <span class="stat__label">Kelas</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="hero__visual">
+            <div id="hero3d" class="hero-3d">
+              <div class="hero-3d__fallback">
+                <div class="iso-scene">
+                  <div class="iso-card">
+                    <div class="iso-bars">
+                      <span style="--h: 46%"></span>
+                      <span style="--h: 72%"></span>
+                      <span style="--h: 58%"></span>
+                      <span style="--h: 88%"></span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="gear-fallback"
+                  data-hero-menu-toggle
+                  aria-label="Buka menu navigasi"
+                  aria-expanded="false"
+                  aria-controls="gearMenu"
+                >
+                  <i class="bi bi-gear-fill" aria-hidden="true"></i>
+                  <span>Menu</span>
+                </button>
+              </div>
+
+              <button
+                type="button"
+                class="gear-hit"
+                data-hero-menu-toggle
+                aria-label="Buka menu navigasi"
+                aria-expanded="false"
+                aria-controls="gearMenu"
+              ></button>
+
+              <nav
+                id="gearMenu"
+                class="gear-menu"
+                aria-label="Menu utama"
+                inert
+              >
+                <div class="gear-menu__panel">
+                  <a
+                    class="gear-menu__item gear-menu__item--home"
+                    href="landing.html"
+                    aria-current="page"
+                  >
+                    <i class="bi bi-house-door" aria-hidden="true"></i>
+                    <span>Beranda</span>
+                  </a>
+                  <a
+                    class="gear-menu__item gear-menu__item--stats"
+                    href="#statistik"
+                  >
+                    <i class="bi bi-bar-chart-line" aria-hidden="true"></i>
+                    <span>Statistik</span>
+                  </a>
+                  <a
+                    class="gear-menu__item gear-menu__item--data"
+                    href="#tabelAja"
+                  >
+                    <i class="bi bi-table" aria-hidden="true"></i>
+                    <span>Data Mahasiswa</span>
+                  </a>
+                  <a
+                    class="gear-menu__item gear-menu__item--logout"
+                    href="login.html"
+                  >
+                    <i class="bi bi-door-open" aria-hidden="true"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row g-3 mb-3" id="statistik">
+        <div class="col-12 col-md-6 col-xl-6">
+          <div class="card chart-card h-100">
+            <div class="card-body">
+              <h3 class="text-center mb-2">Akumulasi Predikat Mahasiswa</h3>
+              <div class="chart-box">
+                <canvas
+                  id="myChart1"
+                  role="img"
+                  aria-label="Diagram pie sebaran predikat nilai mahasiswa"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-6">
+          <div class="card chart-card h-100">
+            <div class="card-body">
+              <h3 class="text-center mb-2">
+                Tren rata-rata kelas per pertemuan
+              </h3>
+              <div class="chart-box">
+                <canvas
+                  id="myChart2"
+                  role="img"
+                  aria-label="Grafik garis jumlah penduduk"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="data-nilai">
+        <div class="table-responsive">
+          <table
+            id="tabelAja"
+            class="table table-hover table-striped align-middle mb-0"
+            style="scroll-margin-top: 1.5rem"
+          >
+            <thead>
+              <tr>
+                <th>Nama Mahasiswa</th>
+                <th>Kelas</th>
+                <th>Mata kuliah</th>
+                <th>Nilai Akhir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Aditya Ramandasswara</td>
+                <td>ASE-12</td>
+                <td>Web Design</td>
+                <td class="text-end">
+                  <span
+                    class="badge rounded-pill fs-6 fw-semibold px-3 bg-warning-subtle text-warning-emphasis border border-warning-subtle"
+                    >80</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Rojak Halimu</td>
+                <td>ASE-12</td>
+                <td>Web Design</td>
+                <td>
+                  <span
+                    class="badge rounded-pill fs-6 fw-semibold px-3 bg-success-subtle text-success-emphasis border border-success-subtle"
+                    >85</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Refandy Firmansyah</td>
+                <td>ASE-12</td>
+                <td>Web Design</td>
+                <td>
+                  <span
+                    class="badge rounded-pill fs-6 fw-semibold px-3 bg-primary-subtle text-primary-emphasis border border-primary-subtle"
+                    >90</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Firyal Abdurahman</td>
+                <td>ASE-12</td>
+                <td>Web Design</td>
+                <td>
+                  <span
+                    class="badge rounded-pill fs-6 fw-semibold px-3 bg-primary-subtle text-primary-emphasis border border-primary-subtle"
+                    >95</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Ilyas Al-Fathah</td>
+                <td>ASE-12</td>
+                <td>Web Design</td>
+                <td>
+                  <span
+                    class="badge rounded-pill fs-6 fw-semibold px-3 bg-success-subtle text-success-emphasis border border-success-subtle"
+                    >85</span
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="d-flex justify-content-center py-3"
+          data-bs-toggle="modal"
+          data-bs-target="#modalKirimNilai"
+        >
+          <span
+            class="kirim-nilai p-2 px-3 d-inline-block text-center"
+          >
+            <i class="bi bi-send-arrow-up-fill"></i> Kirim Nilai</span
+          >
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="modalKirimNilai"
+      data-bs-theme="dark"
+      tabindex="-1"
+      aria-labelledby="modalKirimNilaiLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Nilai</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Apakah Anda yakin untuk mengirimkan nilai ini?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Nanti saja
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="kirimNilai()"
+            >
+              YaQin
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="vendor/jquery-4.0.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="vendor/datatables.min.js"></script>
+
+    <script>
+      function kirimNilai() {
+        Swal.fire({
+          title: "Nilai Terkirim",
+          icon: "success",
+          draggable: true,
+        });
+      }
+    </script>
+
+    <script>
+      const table = new DataTable("#tabelAja", {});
+
+      const CHART_COLORS = {
+        emerald: "#22d3ee",
+        emeraldDark: "#0891b2",
+        sky: "#3b82f6",
+        skyDark: "#2563eb",
+        skyLight: "#0ea5e9",
+        amber: "#f59e0b",
+        amberDark: "#d97706",
+        muted: "#aac0e6",
+        grid: "rgba(122, 167, 255, 0.14)",
+      };
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
+      Chart.defaults.color = CHART_COLORS.muted;
+
+      function chartTooltip() {
+        return {
+          backgroundColor: "rgba(5, 11, 30, 0.94)",
+          borderColor: "rgba(122, 167, 255, 0.35)",
+          borderWidth: 1,
+          padding: 12,
+          cornerRadius: 10,
+          usePointStyle: true,
+        };
+      }
+
+      function lineStroke(context) {
+        const { ctx, chartArea } = context.chart;
+        if (!chartArea) return CHART_COLORS.emerald;
+        const gradient = ctx.createLinearGradient(
+          chartArea.left,
+          0,
+          chartArea.right,
+          0,
+        );
+        gradient.addColorStop(0, CHART_COLORS.emeraldDark);
+        gradient.addColorStop(1, CHART_COLORS.skyLight);
+        return gradient;
+      }
+
+      function lineFill(context) {
+        const { ctx, chartArea } = context.chart;
+        if (!chartArea) return "rgba(34, 211, 238, 0.18)";
+        const gradient = ctx.createLinearGradient(
+          0,
+          chartArea.top,
+          0,
+          chartArea.bottom,
+        );
+        gradient.addColorStop(0, "rgba(34, 211, 238, 0.28)");
+        gradient.addColorStop(0.65, "rgba(59, 130, 246, 0.12)");
+        gradient.addColorStop(1, "rgba(59, 130, 246, 0)");
+        return gradient;
+      }
+
+      const ctx1 = document.getElementById("myChart1");
+      new Chart(ctx1, {
+        type: "pie",
+        data: {
+          labels: ["A (90-100)", "B (85-89)", "C (80-84)"],
+          datasets: [
+            {
+              label: "Jumlah Mahasiswa",
+              data: [2, 2, 1],
+              backgroundColor: [
+                CHART_COLORS.emerald,
+                CHART_COLORS.sky,
+                CHART_COLORS.amber,
+              ],
+              hoverBackgroundColor: [
+                CHART_COLORS.emeraldDark,
+                CHART_COLORS.skyDark,
+                CHART_COLORS.amberDark,
+              ],
+              borderColor: "rgba(4, 9, 24, 0.85)",
+              borderWidth: 3,
+              spacing: 2,
+              borderRadius: 6,
+              hoverOffset: 10,
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          radius: "94%",
+          animation: prefersReducedMotion
+            ? false
+            : {
+                duration: 900,
+                easing: "easeOutQuart",
+                animateRotate: true,
+              },
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                usePointStyle: true,
+                pointStyle: "rect",
+                boxWidth: 8,
+                boxHeight: 8,
+                padding: 18,
+                font: { weight: "600" },
+              },
+            },
+            tooltip: {
+              ...chartTooltip(),
+              callbacks: {
+                label(context) {
+                  const value = context.parsed;
+                  const total = context.dataset.data.reduce(
+                    (sum, item) => sum + item,
+                    0,
+                  );
+                  const percentage = total
+                    ? Math.round((value / total) * 100)
+                    : 0;
+                  return ` ${value} (${percentage}%)`;
+                },
+              },
+            },
+          },
+        },
+      });
+
+      const ctx2 = document.getElementById("myChart2");
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["Pertemuan-1", "Pertemuan-4", "Pertemuan-8", "Pertemuan-12"],
+          datasets: [
+            {
+              label: "rata-rata nilai",
+              data: [74, 85, 79, 87],
+              borderColor: lineStroke,
+              backgroundColor: lineFill,
+              fill: true,
+              cubicInterpolationMode: "monotone",
+              pointRadius: 5,
+              pointHoverRadius: 8,
+              pointBackgroundColor: "#ffffff",
+              pointBorderColor: CHART_COLORS.emerald,
+              pointBorderWidth: 3,
+              pointHoverBackgroundColor: CHART_COLORS.emerald,
+              pointHoverBorderColor: "#ffffff",
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          interaction: { mode: "index", intersect: false },
+          layout: { padding: { top: 8, right: 8, bottom: 0, left: 8 } },
+          animation: prefersReducedMotion
+            ? false
+            : { duration: 900, easing: "easeOutQuart" },
+          scales: {
+            x: {
+              grid: { display: false },
+              border: { display: false },
+              ticks: {
+                font: { weight: "600" },
+                padding: 8,
+              },
+            },
+            y: {
+              beginAtZero: false,
+              grid: { color: CHART_COLORS.grid, drawTicks: false },
+              border: { display: false },
+              ticks: {
+                padding: 10,
+                maxTicksLimit: 5,
+              },
+            },
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: chartTooltip(),
+          },
+        },
+      });
+    </script>
+
+    <script src="vendor/three.min.js"></script>
+    <script src="assets/js/hero.js"></script>
+  </body>
+</html>
